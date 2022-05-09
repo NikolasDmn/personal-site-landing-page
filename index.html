@@ -92,6 +92,8 @@
             font-size: 1.2rem;
             border-radius: 1rem;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
 
         .appItems:hover {
@@ -101,6 +103,11 @@
 
         a {
             text-decoration: none !important;
+        }
+
+        .appImage {
+            width: 5rem;
+            aspect-ratio: 1;
         }
 
         #cp {
@@ -132,13 +139,36 @@
         <p style="font-size: 1.5rem;">My name is Nikolas Diamantopoulos feel free to use the apps that I have
             created.</p>
         <div id="appContainer">
-            <a class="appItems" href="http://todo.ndiam.studio">To-Do List</a>
-            <a class="appItems" href="http://notes.ndiam.studio">Note Taking App</a>
-            <a class="appItems" href="http://ttt.ndiam.studio">Tic Tac Toe</a>
-            <a class="appItems" href="http://ibexams.ndiam.studio">IB Exam Timer</a>
         </div>
     </div>
     <a id="cp" href="https://github.com/NikolasDmn" target="_blank">Nikolas Diamantopoulos</a>
+    <script>
+        const domain = "ndiam.studio"
+        const apps = [{
+            sub: "todo",
+            name: "To-Do List",
+            fav: "./favicons/todo.svg",
+        }, {
+            sub: "notes",
+            name: "Note Taking App",
+            fav: "./favicons/notes.png",
+        }, {
+            sub: "ttt",
+            name: "Tic Tac Toe",
+            fav: "./favicons/ttt.svg",
+        }, {
+            sub: "ibexams",
+            name: "Ib Exam Timer",
+            fav: "./favicons/ibexam.svg",
+        }]
+        apps.forEach((app) => {
+            const appItem = document.createElement("a");
+            appItem.className = "appItems";
+            appItem.setAttribute("href", `http://${app.sub}/${domain}`);
+            appItem.innerHTML = `${app.name}<img class="appImage" src="${app.fav}" />`;
+            document.getElementById("appContainer").appendChild(appItem);
+        })
+    </script>
 </body>
 
 </html>
