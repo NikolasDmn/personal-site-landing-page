@@ -164,7 +164,7 @@
         apps.forEach((app) => {
             const appItem = document.createElement("a");
             appItem.className = "appItems";
-            appItem.setAttribute("href", `http://${app.sub}/${domain}`);
+            appItem.setAttribute("href", `http://${app.sub}.${domain}`);
             appItem.innerHTML = `${app.name}<img class="appImage" src="${app.fav}" />`;
             document.getElementById("appContainer").appendChild(appItem);
         })
