@@ -148,15 +148,23 @@
             cursor: pointer;
         }
 
-        #cp:hover::after {
+        #cp::after {
             content: "Open GitHub";
             position: absolute;
             background-color: rgba(0, 0, 0, 0.5);
             bottom: 2.5rem;
-            right: 3rem;
             font-size: 0.8rem;
+            right: -1rem;
             border-radius: 0.5rem;
             padding: 0.5rem;
+            transition: 0.5s;
+            opacity: 0;
+        }
+
+
+        #cp:hover::after {
+            opacity: 1;
+            right: 3rem;
         }
     </style>
 </head>
